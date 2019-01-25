@@ -1,0 +1,23 @@
+{
+    "name": "erickfirmo/simple-rest-api",
+    "description": "",
+    "keywords": ["api", "rest", "php"],
+    "license": "MIT",
+    "type": "project",
+
+    "require": {
+        "php": "^7.1.11"
+    },
+
+    "autoload": {
+
+        "psr-4": {
+            "App\\": "App/",
+            "Routing\\": "routing/"
+       },
+
+        "classmap": [
+            "database"
+        ]
+    }
+}
