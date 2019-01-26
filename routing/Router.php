@@ -44,23 +44,27 @@ class Router {
     }
 
     public function getGetRoute($name) {
-        return $this->getRoutes[$name];
+        return $this->validateRoute($this->getRoutes[$name]);
     }
 
     public function getPostRoute($name) {
-        return $this->postRoutes[$name];
+        return $this->validateRoute($this->postRoutes[$name]);
     }
 
     public function getPutRoute($name) {
-        return $this->putRoutes[$name];
+        return $this->validateRoute($this->putRoutes[$name]);
     }
 
     public function getPatchRoute($name) {
-        return $this->patchRoutes[$name];
+        return $this->validateRoute($this->patchRoutes[$name]);
     }
 
     public function getDeleteRoute($name) {
-        return $this->deleteRoutes[$name];
+        return $this->validateRoute($this->deleteRoutes[$name]);
+    }
+
+    public function validateRoute($route) {
+        return isset($route) ? $route : die('Rota não definida !');
     }
 
     public function setController($controller) {
@@ -99,8 +103,6 @@ class Router {
     public function setParameters() {
         $url = explode('/', $this->request_uri());
         $urlParam = array_reverse($url);
-        
-
         foreach ($urlParam as $key => $param) {
            if(is_numeric($param)) {
             $this->setParameterValue($param);
@@ -108,7 +110,6 @@ class Router {
            }
         }
     }
-
     
     public function setParameterValue($value) {
         $this->parameterValue = $value;
@@ -132,23 +133,18 @@ class Router {
         $this->setMethod($actions[1]);
     }
 
-    public function verifyResquestType() {
-        if($this->request_method() == 'GET'){
-
+    public function checkRequestType() {
+        if($this->request_method() == 'GET') {
             $this->setAction($this->getGetRoute($this->getRouteName()));
-
         } elseif($this->request_method() == 'POST') {
-
             if(isset($_POST['_method'])) {
                 switch ($_POST['_method']) {
                     case 'put':
                         $this->setAction($this->getPutRoute($this->getRouteName()));
                         break;
-
                     case 'patch':
                         $this->setAction($this->getPatchRoute($this->getRouteName()));
                         break;
-
                     case 'delete':
                         $this->setAction($this->getDeleteRoute($this->getRouteName()));
                 }
@@ -161,7 +157,7 @@ class Router {
     public function run() {
         $this->setParameters();
         $this->setRouteName();
-        $this->verifyResquestType();
+        $this->checkRequestType();
         $controller = $this->getController();
         $method = $this->getMethod();
         (new $controller)->$method($this->getParameterValue());

@@ -1,6 +1,6 @@
 <?php
 
-$router = new \Routing\Router;
+//$router = new \Routing\Router;
 
 //$router->get(['/api', 'ApiController@apiSelect']);
 
@@ -15,5 +15,13 @@ $router = new \Routing\Router;
 //$router->delete(['/api/{$id}', 'ApiController@apiDelete']);
 
 //$router->run();
+
+$router = new \Routing\Router;
+
+$router->get(['/dividas', 'DividaController@dividasSelect']);
+
+$router->post(['/dividas/insert', 'DividaController@dividasInsert']);
+
+$router->put(['/dividas/{$id}', 'DividaController@dividasUpdate']);
 
 $router->run();
