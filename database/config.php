@@ -8,7 +8,7 @@ return [
 
     'DB_PASSWORD' => '',
 
-    'DB_NAME' => 'api',
+    'DB_NAME' => 'dividas',
 
     'DB_DRIVER' => 'mysql',
 
