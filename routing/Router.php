@@ -44,27 +44,27 @@ class Router {
     }
 
     public function getGetRoute($name) {
-        return $this->validateRoute($this->getRoutes[$name]);
+        return $this->validateRoute($this->getRoutes, $name);
     }
 
     public function getPostRoute($name) {
-        return $this->validateRoute($this->postRoutes[$name]);
+        return $this->validateRoute($this->getRoutes, $name);
     }
 
     public function getPutRoute($name) {
-        return $this->validateRoute($this->putRoutes[$name]);
+        return $this->validateRoute($this->getRoutes, $name);
     }
 
     public function getPatchRoute($name) {
-        return $this->validateRoute($this->patchRoutes[$name]);
+        return $this->validateRoute($this->getRoutes, $name);
     }
 
     public function getDeleteRoute($name) {
-        return $this->validateRoute($this->deleteRoutes[$name]);
+        return $this->validateRoute($this->getRoutes, $name);
     }
 
-    public function validateRoute($route) {
-        return isset($route) ? $route : die('Rota não definida !');
+    public function validateRoute($routes, $name) {
+        return isset($routes[$name]) ? $routes[$name] : die('Rota não definida !');
     }
 
     public function setController($controller) {

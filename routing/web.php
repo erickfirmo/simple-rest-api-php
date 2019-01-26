@@ -14,4 +14,8 @@ $router = new \Routing\Router;
 
 //$router->delete(['/api/{$id}', 'ApiController@apiDelete']);
 
+$router = new \Routing\Router;
+ $router->get(['/dividas', 'DividaController@dividasSelect']);
+ $router->post(['/dividas/insert', 'DividaController@dividasInsert']);
+ $router->put(['/dividas/{$id}', 'DividaController@dividasUpdate']);
 $router->run();
