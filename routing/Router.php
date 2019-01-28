@@ -2,6 +2,8 @@
 
 namespace Routing;
 
+use App\Http\Request;
+
 class Router {
 
     public $namespace = 'App\Controllers\\';
@@ -64,7 +66,7 @@ class Router {
     }
 
     public function validateRoute($routes, $name) {
-        return isset($routes[$name]) ? $routes[$name] : die('Rota não definida !');
+        return isset($routes[$name]) ? $routes[$name] : die('Rota não definida.');
     }
 
     public function setController($controller) {
@@ -160,6 +162,6 @@ class Router {
         $this->checkRequestType();
         $controller = $this->getController();
         $method = $this->getMethod();
-        (new $controller)->$method($this->getParameterValue());
+        return (new Request())->getResponse($controller, $method, $this->getParameterValue());
     }
 }

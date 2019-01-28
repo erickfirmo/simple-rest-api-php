@@ -1,2 +1,2 @@
 /vendor
-/App/Controllers/*
+/App/Controllers/DividaController.php
