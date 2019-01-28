@@ -15,15 +15,12 @@
     }
 
     public function getJsonResponse($registers=NULL) {
-        $registers_array = [];
+        $data = [];
         if(isset($registers) && !empty($registers)) {
             foreach ($registers as $register)
-                $registers_array[$register['id']] = $register;
+                $data[$register['id']] = $register;
         }
-        $data = [];
         $header = $this->request()->validate('true_response', $data);
-        $data['data'] = $registers_array;
-        $return = ["header" => $header, "data" => $data];
-        echo json_encode($return);
+        echo json_encode(["header" => $header, "data" => $data]);
     }
  }
