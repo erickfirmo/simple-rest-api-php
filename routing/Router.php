@@ -50,19 +50,19 @@ class Router {
     }
 
     public function getPostRoute($name) {
-        return $this->validateRoute($this->getRoutes, $name);
+        return $this->validateRoute($this->postRoutes, $name);
     }
 
     public function getPutRoute($name) {
-        return $this->validateRoute($this->getRoutes, $name);
+        return $this->validateRoute($this->putRoutes, $name);
     }
 
     public function getPatchRoute($name) {
-        return $this->validateRoute($this->getRoutes, $name);
+        return $this->validateRoute($this->patchRoutes, $name);
     }
 
     public function getDeleteRoute($name) {
-        return $this->validateRoute($this->getRoutes, $name);
+        return $this->validateRoute($this->deleteRoutes, $name);
     }
 
     public function validateRoute($routes, $name) {
