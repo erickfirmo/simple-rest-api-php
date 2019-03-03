@@ -1,21 +1,10 @@
 <?php
 
 $router = new \Routing\Router;
-
-//$router->get(['/api', 'ApiController@apiSelect']);
-
-//$router->get(['/api/{$id}', 'ApiController@apiShow']);
-
-//$router->post(['/api/insert', 'ApiController@apiInsert']);
-
-//$router->patch(['/api/{$id}', 'ApiController@apiUpdate']);
-
-//$router->put(['/api/{$id}', 'ApiController@apiUpdate']);
-
-//$router->delete(['/api/{$id}', 'ApiController@apiDelete']);
-
-$router = new \Routing\Router;
- $router->get(['/dividas', 'DividaController@dividasSelect']);
- $router->post(['/dividas/insert', 'DividaController@dividasInsert']);
- $router->put(['/dividas/{$id}', 'DividaController@dividasUpdate']);
+$router->get(['/dividas', 'DividaController@select']);
+$router->get(['/dividas/{$id}', 'DividaController@findById']);
+$router->post(['/dividas/store', 'DividaController@store']);
+$router->put(['/dividas/{$id}', 'DividaController@update']);
+$router->patch(['/dividas/{$id}', 'DividaController@update']);
+$router->delete(['/dividas/{$id}', 'DividaController@delete']);
 $router->run();

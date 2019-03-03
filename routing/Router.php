@@ -19,6 +19,7 @@ class Router {
     public $parameterValue = NULL;
 
     public function __construct() {
+
     }
 
     public function getNamespace() {
@@ -27,22 +28,27 @@ class Router {
 
     public function get($route) {
         $this->getRoutes[$route[0]] = $route[1];
+        return $this;
     }
 
     public function post($route) {
         $this->postRoutes[$route[0]] = $route[1];
+        return $this;
     }
 
     public function put($route) {
         $this->putRoutes[$route[0]] = $route[1];
+        return $this;
     }
 
     public function patch($route) {
         $this->patchRoutes[$route[0]] = $route[1];
+        return $this;
     }
 
     public function delete($route) {
         $this->deleteRoutes[$route[0]] = $route[1];
+        return $this;
     }
 
     public function getGetRoute($name) {
@@ -63,6 +69,26 @@ class Router {
 
     public function getDeleteRoute($name) {
         return $this->validateRoute($this->deleteRoutes, $name);
+    }
+
+    public function getGetRoutes() {
+        return $this->getRoutes;
+    }
+
+    public function getPostRoutes() {
+        return $this->postRoutes;
+    }
+
+    public function getPutRoutes() {
+        return $this->putRoutes;
+    }
+
+    public function getPatchRoutes() {
+        return $this->patchRoutes;
+    }
+
+    public function getDeleteRoutes() {
+        return $this->deleteRoutes;
     }
 
     public function validateRoute($routes, $name) {
