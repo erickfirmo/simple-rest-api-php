@@ -1,10 +1,10 @@
 <?php
 
 $router = new \Routing\Router;
-$router->get(['/dividas', 'DividaController@select']);
-$router->get(['/dividas/{$id}', 'DividaController@findById']);
-$router->post(['/dividas/store', 'DividaController@store']);
-$router->put(['/dividas/{$id}', 'DividaController@update']);
-$router->patch(['/dividas/{$id}', 'DividaController@update']);
-$router->delete(['/dividas/{$id}', 'DividaController@delete']);
+$router->get(['/examples', 'ExampleController@select']);
+$router->get(['/examples/{$id}', 'ExampleController@findById']);
+$router->post(['/examples/store', 'ExampleController@store']);
+$router->put(['/examples/{$id}', 'ExampleController@update']);
+$router->patch(['/examples/{$id}', 'ExampleController@update']);
+$router->delete(['/examples/{$id}', 'ExampleController@delete']);
 $router->run();
