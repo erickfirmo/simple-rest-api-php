@@ -46,7 +46,7 @@ class ExampleController extends Controller {
    
     public function select() {
         $db = $this->getPDOConnection();
-        $stmt = $db->prepare("SELECT * FROM $table");
+        $stmt = $db->prepare("SELECT * FROM ".$this->table);
         $stmt->execute();
         $registers = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         $this->getJsonResponse($registers);
@@ -56,7 +56,7 @@ class ExampleController extends Controller {
         $column1 = $_POST['column1'];
         $column2 = $_POST['column2'];
         $db = $this->getPDOConnection();        
-        $stmt = $db->prepare("INSERT INTO $table (column1, column2) VALUES ('$column1', '$column2')");
+        $stmt = $db->prepare("INSERT INTO ".$this->table." (column1, column2) VALUES ('$column1', '$column2')");
         $stmt->execute();
     }
 
@@ -64,13 +64,13 @@ class ExampleController extends Controller {
         $db = $this->getPDOConnection();
         $column1 = $_POST['column1'];
         $column2 = $_POST['column2'];
-        $stmt = $db->prepare('UPDATE '.$table.' SET column1="'.$column1.'", column2="'.$column2.'" WHERE id='.$id);
+        $stmt = $db->prepare('UPDATE '.$this->table.' SET column1="'.$column1.'", column2="'.$column2.'" WHERE id='.$id);
         $stmt->execute();
     }
 
     public function delete($id) {
         $db = $this->getPDOConnection();
-        $stmt = $db->prepare('DELETE FROM '.$table.' WHERE id='.$id);
+        $stmt = $db->prepare('DELETE FROM '.$this->table.' WHERE id='.$id);
         $stmt->execute();
     }
 
@@ -78,7 +78,7 @@ class ExampleController extends Controller {
         $db = $this->getPDOConnection();
         $column1 = $_POST['column1'];
         $column2 = $_POST['column2'];
-        $stmt = $db->prepare('UPDATE '.$table.' SET column1="'.$column1.'", column2="'.$column2.'" WHERE id='.$id);
+        $stmt = $db->prepare('UPDATE '.$this->table.' SET column1="'.$column1.'", column2="'.$column2.'" WHERE id='.$id);
         $stmt->execute();
     }
 }
