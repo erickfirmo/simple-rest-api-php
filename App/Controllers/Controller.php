@@ -21,8 +21,8 @@
         if(isset($registers) && !empty($registers)) {
             foreach ($registers as $register) {
                 $register['links'] = $this->links($register['id']);
+                $data[$register['id']] = $register;
             }
-            $data[$register['id']] = $register;
         }
         $header = $this->request()->validate('true_response', $data);
         echo json_encode(["header" => $header, "data" => $data]);
