@@ -1,6 +1,6 @@
 <?php
 
-$router = new \Routing\Router;
+$router = new \ErickFirmo\Router;
 $router->get(['/examples', 'ExampleController@select']);
 $router->get(['/examples/{$id}', 'ExampleController@findById']);
 $router->post(['/examples/store', 'ExampleController@store']);

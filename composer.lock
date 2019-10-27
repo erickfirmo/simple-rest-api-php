@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4427aa40ba2911d8813b6ecc3a6ce3e4",
-    "packages": [],
+    "content-hash": "443af56440bb40f4ec2f1a386f2df494",
+    "packages": [
+        {
+            "name": "erickfirmo/router",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erickfirmo/Router.git",
+                "reference": "e9f0eb65da4de907a4441dc15017f14616c1a3c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erickfirmo/Router/zipball/e9f0eb65da4de907a4441dc15017f14616c1a3c3",
+                "reference": "e9f0eb65da4de907a4441dc15017f14616c1a3c3",
+                "shasum": ""
+            },
+            "require": {
+                "erickfirmo/router": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ErickFirmo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Érick Firmo",
+                    "email": "erickluques@gmail.com"
+                }
+            ],
+            "description": "PHP Router",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "time": "2019-10-27T02:30:13+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
